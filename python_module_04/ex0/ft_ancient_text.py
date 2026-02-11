@@ -33,7 +33,7 @@ def storage_vault(dir: str) -> None:
 
 def ft_ancient_text():
     print("=== CYBER ARCHIVES - DATA RECOVERY SYSTEM ===")
-    storage_vault("ancient_fragmen.txt")
+    storage_vault("ancient_fragment.txt")
 
 
 ft_ancient_text()

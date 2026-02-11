@@ -17,6 +17,7 @@ def create_archive(filename: str, txt: str):
     :param filename: The name or path of the file to be created.
     :param txt: The string content to be written into the file.
     :raises FileExistsError: If the file already exists in the specified path.
+    :return: The file created
     """
     print(f"Initializing new storage unit: {filename}")
 
@@ -35,8 +36,7 @@ def create_archive(filename: str, txt: str):
             print_data(txt)
             print("\nData inscription complete. Storage unit sealed.")
             print(f"Archive '{filename}' ready for long-term preservation.")
-        finally:
-            f.close()
+            return f
 
 
 def ft_archive_creation():
@@ -46,7 +46,9 @@ def ft_archive_creation():
     line2 = "{[}ENTRY 002{]} Efficiency increased by 347 %\n"
     line3 = "{[}ENTRY 003{]} Archived by Data Archivist trainee"
 
-    create_archive("new_discovery.txt", line1 + line2 + line3)
+    f = create_archive("new_discovery.txt", line1 + line2 + line3)
+    if f:
+        f.close()
 
 
 ft_archive_creation()

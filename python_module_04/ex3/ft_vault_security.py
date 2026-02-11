@@ -11,9 +11,9 @@ def secure_extraction(file: str) -> None:
     print("\nSECURE EXTRACTION:")
     try:
         with open(file) as f:
-            print(f.read())
+            return f.read()
     except FileNotFoundError:
-        print("[ALERT] Vault connection failed...")
+        return "[ALERT] Vault connection failed..."
 
 
 def secure_preservation(file: str, msg: str) -> None:
@@ -41,7 +41,8 @@ def ft_vault_security():
     print("Initiating secure vault access...")
     print("Vault connection established with failsafe protocols")
 
-    secure_extraction("classified_data.txt")
+    txt = secure_extraction("classified_data.txt")
+    print(txt)
 
     msg = "[CLASSIFIED] New security protocols archived"
     secure_preservation("new_archive.txt", msg)
